@@ -24,22 +24,14 @@ import greetingkmp.composeapp.generated.resources.compose_multiplatform
 @Preview
 fun App() {
     MaterialTheme {
-        var showContent by remember { mutableStateOf(false) }
-        Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-            Button(onClick = { showContent = !showContent }) {
-                Text("Click me!")
-            }
-            AnimatedVisibility(showContent) {
-                val greetings = remember { Greeting().greet() }
-                Column(
-                    modifier = Modifier.padding(all = 20.dp),
-                    verticalArrangement = Arrangement.spacedBy(8.dp),
-                    ) {
-                    greetings.forEach { greeting ->
-                        Text(greeting)
-                        Divider()
-                    }
-                }
+        val greetings = remember { Greeting().greet() }
+        Column(
+            modifier = Modifier.padding(all = 20.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+            ) {
+            greetings.forEach { greeting ->
+                Text(greeting)
+                Divider()
             }
         }
     }

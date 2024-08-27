@@ -7,6 +7,7 @@ class Greeting {
 
     fun greet(): List<String> = buildList {
         add(if (Random.nextBoolean()) "Hi!" else "Hello!")
-        add("[$num] Guess what this is! > ${platform.name.reversed()}!")
+        add("Guess what this is! > ${platform.name.reversed()}!")
+        add(daysPhrase())
     }
 }
